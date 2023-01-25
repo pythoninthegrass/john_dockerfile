@@ -2,7 +2,7 @@
 
 Hi John!
 
-While I don't have the bandwidth to make a django demo repo, figured a short and sweet POC would suffice. Copied some docs from my [python_template](https://github.com/pythoninthegrass/python_template) repo for your reference. (Did add a django folder as well, but it's been a bit since I've tested it haha.)
+While I don't have the bandwidth to make a django demo repo, figured a short and sweet POC would suffice. Copied some docs from my [python_template](https://github.com/pythoninthegrass/python_template) repo for your reference. ~~(Did add a django folder as well, but it's been a bit since I've tested it haha.)~~
 
 Two commands to get it working with just docker:
 
@@ -18,4 +18,21 @@ total 20
 -rw-r--r-- 1 app app 3733 Jan 25 03:07 poetry.lock
 -rw-r--r-- 1 app app  395 Jan 25 03:07 pyproject.toml
 -rw-r--r-- 1 app app    1 Jan 25 03:06 requirements.txt
+```
+
+Turns out the [django example](django/) _does_ work! 🥳
+```bash
+# move to django directory
+cd django
+
+# build without cached layers and concurrently (useless without multistage, but hey)
+docker-compose build --no-cache --parallel
+
+# start container(s) and get rid of orphaned builds
+docker-compose up --remove-orphans -d
+
+# navigate to localhost:8000
+
+# remove
+docker-compose down # stop is another option
 ```
