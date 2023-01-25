@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "john-dockerfile"
+version = "0.1.0"
+description = ""
+authors = ["pythoninthegrass <4097471+pythoninthegrass@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "john_dockerfile"}]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+python-decouple = "^3.7"
+icecream = "^2.1.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
